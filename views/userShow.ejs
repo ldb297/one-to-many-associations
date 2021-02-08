@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body"></div>
+      <h5 class="card-title"><%= user.firstName %> <%= user.lastName %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Pet(s)</h6>
+      <% for (let i = 0; i < user.pets.length; i++){ %>
+      <ul class ="card-text">
+          <li>A <%= user.pets[i].species %> named <%= user.pets[i].name %></li>
+        </ul>
+     <% } %>
+      <p class="card-text">wow, look at all those chickens</p>
+      <form action='/users/<%= user.id %>/addPet' method='POST'>
+        <div class="mb-3">
+          <label for="name" class="form-label">Pet name</label>
+          <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name'>
+          <div class="form-text">We'll never share your pet with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="species" class="form-s">Species</label>
+            <input type="text" class="form-control" id="species" aria-describedby="emailHelp" name='species'>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  </div>
